@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,3 +41,33 @@ Route::get('/Demo7', function () {
 Route::get('/Demo8', function () {
     return view('about');
 });
+use App\Http\Controllers\ExampleController;
+
+use function Laravel\Prompts\form;
+
+Route::get('/message',[ExampleController::class,'showMessage']);
+Route::get('/example',[ExampleController::class,'showView']);
+Route::get('/items',[ExampleController::class,'listItems']);
+
+Route::get('/from', function(){
+    return view('from');
+});
+Route::post('/submit',[ExampleController::class,'handleForm']);
+
+
+Route::get('/condition', [ExampleController::class, 'checkCondition']);
+
+Route::get('/numbers', [ExampleController::class, 'generateNumbers']);
+
+Route::get('/choose-color/{color}', [ExampleController::class, 'chooseColor']);
+
+Route::get('/random', [ExampleController::class, 'randomNumbers']);
+
+Route::get('/check-access/{age}', [ExampleController::class, 'checkAccess']);
+
+Route::get('/api-simulate', [ExampleController::class, 'simulateApi']);
+
+Route::get('/chessboard', [ExampleController::class, 'chessboard']);
+
+Route::get('/form', [ExampleController::class, 'showForm']);
+Route::post('/submit-form', [ExampleController::class, 'validateForm']);
